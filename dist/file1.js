@@ -37,5 +37,17 @@ class Student {
     }
 }
 const student1 = new Student("Piyas Ahmed", 21, "TypeScript");
-console.log(student1);
+// console.log(student1);
+class ShoppingCart {
+    name;
+    price;
+    employee;
+    constructor(name, price, employee) {
+        this.name = name;
+        this.price = price;
+        this.employee = employee;
+    }
+}
+const user1 = new ShoppingCart("apple", 400, ["jon", "jahid"]);
+console.log(user1);
 //# sourceMappingURL=file1.js.map
