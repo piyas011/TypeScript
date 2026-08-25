@@ -85,5 +85,35 @@
     };
   };
 
-  console.log(arrayProcessing(numbersArray));
+  //   console.log(arrayProcessing(numbersArray));
+}
+{
+  // String Analyzer
+
+  const string: string = "JavaScript";
+
+  const analyzerString = (srt: string) => {
+    const stringLength = srt.length;
+    const upperCase = srt.toUpperCase();
+    const lowerCase = srt.toLowerCase();
+
+    const countVowel = (string: string) => {
+      let count = 0;
+      let arrayString = string.toLowerCase().split("");
+
+      for (const letter of arrayString) {
+        if ("aeiou".includes(letter)) {
+          count++;
+        }
+      }
+      return count;
+    };
+    const vowelCount = countVowel(srt);
+
+    const reverse = srt.split("").reverse().join("");
+
+    return { stringLength, upperCase, lowerCase, vowelCount, reverse };
+  };
+
+  console.log(analyzerString(string));
 }
