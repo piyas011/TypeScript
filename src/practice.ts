@@ -114,5 +114,30 @@
     return { stringLength, upperCase, lowerCase, vowelCount, reverse };
   };
 
-  console.log(analyzerString(string));
+  // console.log(analyzerString(string));
+}
+{
+  // Task 5 -- Student Array of Object
+
+  const studentArray = [
+    { id: 2, name: "Rohim Ahmed", age: 22, marks: 60 },
+    { id: 3, name: "Korim Ahmed", age: 23, marks: 70 },
+    { id: 4, name: "Solim Ahmed", age: 24, marks: 30 },
+    { id: 5, name: "Jalim Ahmed", age: 25, marks: 80 },
+    { id: 1, name: "Piyas Ahmed", age: 21, marks: 90 },
+  ];
+
+  interface Student {
+    id: number;
+    name: string;
+    age: number;
+    marks: number;
+  }
+
+  const studentAnalyzer = (students: Student[]) => {
+    let topStudent = students[0];
+    let lowestStudent = students[0];
+  };
+
+  console.log(studentAnalyzer(studentArray));
 }

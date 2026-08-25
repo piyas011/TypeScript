@@ -100,6 +100,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
         const reverse = srt.split("").reverse().join("");
         return { stringLength, upperCase, lowerCase, vowelCount, reverse };
     };
-    console.log(analyzerString(string));
+    // console.log(analyzerString(string));
+}
+{
+    // Task 5 -- Student Array of Object
+    const studentArray = [
+        { id: 2, name: "Rohim Ahmed", age: 22, marks: 60 },
+        { id: 3, name: "Korim Ahmed", age: 23, marks: 70 },
+        { id: 4, name: "Solim Ahmed", age: 24, marks: 30 },
+        { id: 5, name: "Jalim Ahmed", age: 25, marks: 80 },
+        { id: 1, name: "Piyas Ahmed", age: 21, marks: 90 },
+    ];
+    const studentAnalyzer = (students) => {
+        let topStudent = students[0];
+        let lowestStudent = students[0];
+    };
+    console.log(studentAnalyzer(studentArray));
 }
 //# sourceMappingURL=practice.js.map
