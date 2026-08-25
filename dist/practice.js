@@ -29,11 +29,35 @@ Object.defineProperty(exports, "__esModule", { value: true });
         }
         return "Fail";
     };
-    console.log(`
-    Student Name : ${name}
-    Student Age  : ${age}
-    Student Mark : ${mark}
-    Student Result : ${result(mark)} 
-    `);
+    /**   console.log(
+      `
+      Student Name : ${name}
+      Student Age  : ${age}
+      Student Mark : ${mark}
+      Student Result : ${result(mark)}
+      `,
+    );
+    */
+}
+{
+    // Task 2 Number Analyzer
+    const numberAnalyzer = (number) => {
+        const negativePositiveCheck = number > 0 ? "Positive" : number <= 0 ? "Negative" : "Zero";
+        // console.log(negativePositiveCheck);
+        const evenOddCheck = number % 2 === 0 ? "Even Number" : "Odd Number";
+        // console.log(evenOddCheck);
+        const square = number * number;
+        // console.log(square);
+        return ` 
+
+    Number -> ${number}
+
+    ${negativePositiveCheck}
+    ${evenOddCheck}
+    Square :${square} 
+     
+    `;
+    };
+    console.log(numberAnalyzer(7));
 }
 //# sourceMappingURL=practice.js.map
