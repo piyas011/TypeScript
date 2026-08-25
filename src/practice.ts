@@ -100,7 +100,6 @@
     const countVowel = (string: string) => {
       let count = 0;
       let arrayString = string.toLowerCase().split("");
-
       for (const letter of arrayString) {
         if ("aeiou".includes(letter)) {
           count++;
