@@ -58,6 +58,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
      
     `;
     };
-    console.log(numberAnalyzer(7));
+    //   console.log(numberAnalyzer(7));
+}
+{
+    // Task 3 - Array Processing
+    const numbers = [];
 }
 //# sourceMappingURL=practice.js.map

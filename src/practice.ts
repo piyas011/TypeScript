@@ -40,12 +40,13 @@
   // Task 2 Number Analyzer
 
   const numberAnalyzer = (number: number): string => {
-    const negativePositiveCheck =
+    const negativePositiveCheck: string =
       number > 0 ? "Positive" : number <= 0 ? "Negative" : "Zero";
     // console.log(negativePositiveCheck);
-    const evenOddCheck = number % 2 === 0 ? "Even Number" : "Odd Number";
+    const evenOddCheck: string =
+      number % 2 === 0 ? "Even Number" : "Odd Number";
     // console.log(evenOddCheck);
-    const square = number * number;
+    const square: number = number * number;
     // console.log(square);
 
     return ` 
@@ -59,5 +60,10 @@
     `;
   };
 
-  console.log(numberAnalyzer(7));
+  //   console.log(numberAnalyzer(7));
+}
+
+{
+  // Task 3 - Array Processing
+  const numbers = [];
 }
