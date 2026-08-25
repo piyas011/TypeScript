@@ -62,8 +62,28 @@
 
   //   console.log(numberAnalyzer(7));
 }
-
 {
-  // Task 3 - Array Processing
-  const numbers = [];
+  // Task 3 --- Array Processing
+
+  const numbersArray = [10, 25, 30, 45, 65, 70];
+
+  const arrayProcessing = (numbers: number[]) => {
+    const evenNumber: number[] = numbers.filter((num) => num % 2 === 0);
+    const oddNumber: number[] = numbers.filter((num) => num % 2 !== 0);
+    const hightNumber = [...numbers].sort((a, b) => b - a)[0];
+    const lowestNumber = [...numbers].sort((a, b) => a - b)[0];
+    const totalSumOfNumber: number = numbers.reduce(
+      (acc, number) => acc + number,
+      0,
+    );
+    return {
+      evenNumber,
+      oddNumber,
+      hightNumber,
+      lowestNumber,
+      totalSumOfNumber,
+    };
+  };
+
+  console.log(arrayProcessing(numbersArray));
 }
