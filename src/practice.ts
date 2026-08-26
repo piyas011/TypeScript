@@ -134,9 +134,57 @@
     marks: number;
   }
 
-  const studentAnalyzer = (students: Student[]) => {
-    let topStudent = students[0];
-    let lowestStudent = students[0];
+  interface StudentReturnType {
+    topStudent: Student;
+    lowestStudent: Student;
+    moreThenSixtyMark: Student[];
+    averageMark: number;
+    searchStudentById: Student | undefined;
+  }
+
+  const studentAnalyzer = (
+    students: Student[],
+  ): StudentReturnType | undefined => {
+    if (students.length === 0) {
+      return undefined;
+    }
+    // find top and lowest Student
+    let topStudent = students[0]!;
+    let lowestStudent = students[0]!;
+
+    for (const student of students) {
+      if (topStudent.marks < student.marks) {
+        topStudent = student;
+      }
+
+      if (lowestStudent.marks > student.marks) {
+        lowestStudent = student;
+      }
+    }
+
+    // calculate total mark from students array
+    let totalMark = 0;
+    for (const student of students) {
+      totalMark += student.marks;
+    }
+
+    // More Then Sixty Mark
+    const moreThenSixtyMark = students.filter((student) => student.marks > 60);
+
+    // calculate average mark from students array of object
+    const averageMark = totalMark / students.length;
+
+    // find a  specific student from students array of object by id
+
+    const searchStudentById = students.find((student) => student.id === 4);
+
+    return {
+      topStudent,
+      lowestStudent,
+      moreThenSixtyMark,
+      averageMark,
+      searchStudentById,
+    };
   };
 
   console.log(studentAnalyzer(studentArray));
