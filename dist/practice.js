@@ -145,6 +145,72 @@ Object.defineProperty(exports, "__esModule", { value: true });
             searchStudentById,
         };
     };
-    console.log(studentAnalyzer(studentArray));
+    // console.log(studentAnalyzer(studentArray));
+}
+{
+    const products = [
+        {
+            name: "Keyboard",
+            price: 1200,
+            quantity: 2,
+        },
+        {
+            name: "Mouse",
+            price: 800,
+            quantity: 3,
+        },
+        {
+            name: "Monitor",
+            price: 15000,
+            quantity: 1,
+        },
+        {
+            name: "Headphone",
+            price: 2500,
+            quantity: 2,
+        },
+        {
+            name: "USB Cable",
+            price: 500,
+            quantity: 4,
+        },
+        {
+            name: "Webcam",
+            price: 3500,
+            quantity: 1,
+        },
+    ];
+    /////////////////////////
+    const shoppingCart = (products) => {
+        const productTotalPrice = products.map((product) => product.price * product.quantity);
+        // console.log(productTotalPrice);
+        const cartTotalPrice = products.reduce((acc, product) => {
+            let totalPrice = product.price * product.quantity;
+            return acc + totalPrice;
+        }, 0);
+        // console.log(cartTotalPrice);
+        // expensive Product and cheapest Product
+        let expensiveProduct = products[0];
+        let cheapestProduct = products[0];
+        for (const expensive of products) {
+            if (expensiveProduct.price < expensive.price) {
+                expensiveProduct = expensive;
+            }
+            if (cheapestProduct.price > expensive.price) {
+                cheapestProduct = expensive;
+            }
+        }
+        // sum  total quantity
+        const totalQuantity = products.reduce((acc, product) => acc + product.quantity, 0);
+        return {
+            productTotalPrice,
+            cartTotalPrice,
+            expensiveProduct,
+            cheapestProduct,
+            totalQuantity,
+        };
+    };
+    // call function
+    console.log(shoppingCart(products));
 }
 //# sourceMappingURL=practice.js.map
