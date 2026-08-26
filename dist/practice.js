@@ -211,6 +211,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
         };
     };
     // call function
-    console.log(shoppingCart(products));
+    // console.log(shoppingCart(products));
+}
+{
+    const cities = [
+        "Dhaka",
+        "Chittagong",
+        "Dhaka",
+        "Khulna",
+        "Dhaka",
+        "Khulna",
+        "Rajshahi",
+    ];
+    const cityCountFunction = (cities) => {
+        let cityCount = {};
+        for (const city of cities) {
+            if (cityCount[city]) {
+                cityCount[city]++;
+            }
+            else {
+                cityCount[city] = 1;
+            }
+        }
+        return cityCount;
+    };
+    console.log(cityCountFunction(cities));
 }
 //# sourceMappingURL=practice.js.map

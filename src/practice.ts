@@ -198,7 +198,7 @@
     quantity: number;
   }
 
-  interface ReturnType {
+  interface CartResult {
     productTotalPrice: number[];
     cartTotalPrice: number;
     expensiveProduct: Products;
@@ -240,7 +240,7 @@
   ];
 
   /////////////////////////
-  const shoppingCart = (products: Products[]): ReturnType => {
+  const shoppingCart = (products: Products[]): CartResult => {
     const productTotalPrice = products.map(
       (product) => product.price * product.quantity,
     );
@@ -281,5 +281,38 @@
   };
 
   // call function
-  console.log(shoppingCart(products));
+  // console.log(shoppingCart(products));
+}
+
+{
+  // Task 7
+
+  interface City {
+    city: number;
+  }
+
+  const cities = [
+    "Dhaka",
+    "Chittagong",
+    "Dhaka",
+    "Khulna",
+    "Dhaka",
+    "Khulna",
+    "Rajshahi",
+  ];
+
+  const cityCountFunction = (cities: string[]) => {
+    let cityCount: { [Key: string]: number } = {};
+
+    for (const city of cities) {
+      if (cityCount[city]) {
+        cityCount[city]++;
+      } else {
+        cityCount[city] = 1;
+      }
+    }
+
+    return cityCount;
+  };
+  console.log(cityCountFunction(cities));
 }
