@@ -311,8 +311,6 @@
         cityCount[city] = 1;
       }
     }
-
-    return cityCount;
   };
   console.log(cityCountFunction(cities));
 }
