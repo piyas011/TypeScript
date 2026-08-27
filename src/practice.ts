@@ -312,5 +312,130 @@
       }
     }
   };
-  console.log(cityCountFunction(cities));
+  // console.log(cityCountFunction(cities));
+}
+
+{
+  // Task 9 — Employee Management 🔥
+  interface Employee {
+    id: number;
+    name: string;
+    salary: number;
+    department: string;
+  }
+
+  const employees: Employee[] = [
+    {
+      id: 1,
+      name: "Piyas",
+      salary: 25000,
+      department: "IT",
+    },
+    {
+      id: 2,
+      name: "Rahim",
+      salary: 18000,
+      department: "HR",
+    },
+    {
+      id: 3,
+      name: "Karim",
+      salary: 32000,
+      department: "IT",
+    },
+    {
+      id: 4,
+      name: "Sakib",
+      salary: 22000,
+      department: "Finance",
+    },
+    {
+      id: 5,
+      name: "Nayeem",
+      salary: 28000,
+      department: "IT",
+    },
+    {
+      id: 6,
+      name: "Hasan",
+      salary: 20000,
+      department: "HR",
+    },
+    {
+      id: 7,
+      name: "Rafi",
+      salary: 35000,
+      department: "Management",
+    },
+    {
+      id: 8,
+      name: "Arman",
+      salary: 24000,
+      department: "Finance",
+    },
+    {
+      id: 9,
+      name: "Tanvir",
+      salary: 30000,
+      department: "IT",
+    },
+    {
+      id: 10,
+      name: "Shuvo",
+      salary: 19000,
+      department: "Support",
+    },
+  ];
+  ///////////////////////////////////////
+
+  const employeeManagement = (employees: Employee[]) => {
+    // console.log(employees);
+    const itDepartmentEmployees = employees.filter(
+      (employee: Employee) => employee.department === "IT",
+    );
+    // console.log(itDepartmentEmployees);
+
+    let highestPaidEmployee = employees[0]!;
+    let lowestPaidEmployee = employees[0]!;
+
+    for (const employee of employees) {
+      if (highestPaidEmployee.salary < employee.salary) {
+        highestPaidEmployee = employee;
+      }
+      if (lowestPaidEmployee.salary > employee.salary) {
+        lowestPaidEmployee = employee;
+      }
+    }
+
+    // console.log(highestPaidEmployee);
+    // console.log(lowestPaidEmployee);
+
+    const totalSalary = employees.reduce(
+      (acc, employee) => acc + employee.salary,
+      0,
+    );
+    const averageSalary = totalSalary / employees.length;
+    // console.log(averageSalary);
+
+    const searchById: number = 2;
+    const searchEmployee = employees.find(
+      (employee) => employee.id === searchById,
+    );
+    // console.log(searchEmployee);
+
+    const highSalaryEmployees = employees.filter(
+      (employee) => employee.salary >= 20000,
+    );
+    // console.log(highSalaryEmployees);
+
+    return {
+      itDepartmentEmployees,
+      highestPaidEmployee,
+      lowestPaidEmployee,
+      averageSalary,
+      searchEmployee,
+      highSalaryEmployees,
+    };
+  };
+  console.log(employeeManagement(employees));
 }
