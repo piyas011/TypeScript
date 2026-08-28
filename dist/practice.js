@@ -443,12 +443,28 @@ Object.defineProperty(exports, "__esModule", { value: true });
             return { [mark]: gradeCalculate(mark) };
         });
         // console.log(studentGradeCalculate);
+        const findTopStudent = (studentsObject) => {
+            const averageCalculate = (student) => {
+                return (student.marks.reduce((acc, mark) => acc + mark) / student.marks.length);
+            };
+            const topStudent = studentsObject.reduce((top, student) => {
+                const currentAverage = averageCalculate(student);
+                const topAverage = averageCalculate(top);
+                if (currentAverage < topAverage) {
+                    return top;
+                }
+                return student;
+            }, studentsObject[0]);
+            return topStudent;
+        };
+        const topper = findTopStudent(students);
         // Find Top Student
         ///////////////////////////////////////////
         return {
             totalMark: totalMark,
             studentAverageMark: studentAverageMark,
             studentGradeCalculate: studentGradeCalculate,
+            TopStudent: topper,
         };
     };
     console.log(studentManagementSystem(students));

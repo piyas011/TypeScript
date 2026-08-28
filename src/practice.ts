@@ -560,13 +560,35 @@
     });
     // console.log(studentGradeCalculate);
 
-    // Find Top Student
+    const findTopStudent = (studentsObject: Student[]) => {
+      const averageCalculate = (student: Student): number => {
+        return (
+          student.marks.reduce((acc, mark) => acc + mark) / student.marks.length
+        );
+      };
 
+      const topStudent = studentsObject.reduce((top, student) => {
+        const currentAverage = averageCalculate(student);
+
+        const topAverage = averageCalculate(top);
+
+        if (currentAverage < topAverage) {
+          return top;
+        }
+        return student;
+      }, studentsObject[0]!);
+      return topStudent;
+    };
+
+    const topper = findTopStudent(students);
+
+    // Find Top Student
     ///////////////////////////////////////////
     return {
       totalMark: totalMark,
       studentAverageMark: studentAverageMark,
       studentGradeCalculate: studentGradeCalculate,
+      TopStudent: topper,
     };
   };
 
