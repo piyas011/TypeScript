@@ -539,7 +539,7 @@
 
     // Grade Calculate
     const studentGradeCalculate = studentAverageMark.map((mark) => {
-      const gradeCalculate = (mark: number): {} => {
+      const gradeCalculate = (mark: number) => {
         if (mark >= 80) {
           return "A+";
         } else if (mark >= 70) {
