@@ -112,7 +112,29 @@ const calculateGrade = (averageMark: number[]): Grade[] => {
   return grade;
 };
 
+// Top Student
+
+const averageMark = (students: Student) => {
+  const total = students.marks.reduce((acc, mark) => acc + mark);
+  const average = total / students.marks.length;
+  return average;
+};
+
+const findTopStudent = (students: Student[]) => {
+  const topStudent = students.reduce((top, student) => {
+    const currentAverage = averageMark(student);
+
+    const topAverage = averageMark(top);
+
+    if (currentAverage > topAverage) {
+      return student;
+    }
+    return top;
+  });
+  return topStudent;
+};
 // console.log(totalMarkCalculate(students));
 // console.log(calculateAverageMark(students));
 // console.log(calculateGrade(calculateAverageMark(students)));
-//
+
+console.log(findTopStudent(students));

@@ -233,8 +233,223 @@ Object.defineProperty(exports, "__esModule", { value: true });
                 cityCount[city] = 1;
             }
         }
-        return cityCount;
     };
-    console.log(cityCountFunction(cities));
+    // console.log(cityCountFunction(cities));
+}
+{
+    const employees = [
+        {
+            id: 1,
+            name: "Piyas",
+            salary: 25000,
+            department: "IT",
+        },
+        {
+            id: 2,
+            name: "Rahim",
+            salary: 18000,
+            department: "HR",
+        },
+        {
+            id: 3,
+            name: "Karim",
+            salary: 32000,
+            department: "IT",
+        },
+        {
+            id: 4,
+            name: "Sakib",
+            salary: 22000,
+            department: "Finance",
+        },
+        {
+            id: 5,
+            name: "Nayeem",
+            salary: 28000,
+            department: "IT",
+        },
+        {
+            id: 6,
+            name: "Hasan",
+            salary: 20000,
+            department: "HR",
+        },
+        {
+            id: 7,
+            name: "Rafi",
+            salary: 35000,
+            department: "Management",
+        },
+        {
+            id: 8,
+            name: "Arman",
+            salary: 24000,
+            department: "Finance",
+        },
+        {
+            id: 9,
+            name: "Tanvir",
+            salary: 30000,
+            department: "IT",
+        },
+        {
+            id: 10,
+            name: "Shuvo",
+            salary: 19000,
+            department: "Support",
+        },
+    ];
+    ///////////////////////////////////////
+    const employeeManagement = (employees) => {
+        // console.log(employees);
+        const itDepartmentEmployees = employees.filter((employee) => employee.department === "IT");
+        // console.log(itDepartmentEmployees);
+        let highestPaidEmployee = employees[0];
+        let lowestPaidEmployee = employees[0];
+        for (const employee of employees) {
+            if (highestPaidEmployee.salary < employee.salary) {
+                highestPaidEmployee = employee;
+            }
+            if (lowestPaidEmployee.salary > employee.salary) {
+                lowestPaidEmployee = employee;
+            }
+        }
+        // console.log(highestPaidEmployee);
+        // console.log(lowestPaidEmployee);
+        const totalSalary = employees.reduce((acc, employee) => acc + employee.salary, 0);
+        const averageSalary = totalSalary / employees.length;
+        // console.log(averageSalary);
+        function search(id) {
+            const searchEmployee = employees.find((employee) => employee.id === id);
+            return searchEmployee;
+        }
+        ``;
+        const searchEmployee = search(1);
+        // const searchById: number = 2;
+        // const searchEmployee = employees.find(
+        //   (employee) => employee.id === searchById,
+        // );
+        // // console.log(searchEmployee);
+        const highSalaryEmployees = employees.filter((employee) => employee.salary >= 20000);
+        // console.log(highSalaryEmployees);
+        return {
+            itDepartmentEmployees,
+            highestPaidEmployee,
+            lowestPaidEmployee,
+            averageSalary,
+            searchEmployee,
+            highSalaryEmployees,
+        };
+    };
+    // console.log(employeeManagement(employees));
+}
+{
+    const students = [
+        {
+            id: 1,
+            name: "Piyas",
+            age: 21,
+            marks: [80, 75, 90],
+        },
+        {
+            id: 2,
+            name: "Rahim",
+            age: 22,
+            marks: [65, 70, 68],
+        },
+        {
+            id: 3,
+            name: "Karim",
+            age: 23,
+            marks: [88, 92, 85],
+        },
+        {
+            id: 4,
+            name: "Sakib",
+            age: 20,
+            marks: [55, 60, 58],
+        },
+        {
+            id: 5,
+            name: "Nayeem",
+            age: 22,
+            marks: [95, 90, 93],
+        },
+        {
+            id: 6,
+            name: "Hasan",
+            age: 21,
+            marks: [72, 68, 75],
+        },
+        {
+            id: 7,
+            name: "Rafi",
+            age: 24,
+            marks: [45, 52, 48],
+        },
+        {
+            id: 8,
+            name: "Arman",
+            age: 22,
+            marks: [82, 78, 85],
+        },
+        {
+            id: 9,
+            name: "Tanvir",
+            age: 23,
+            marks: [60, 65, 62],
+        },
+        {
+            id: 10,
+            name: "Shuvo",
+            age: 20,
+            marks: [35, 42, 38],
+        },
+    ];
+    const studentManagementSystem = (studentsObject) => {
+        // console.log(studentsObject);
+        //
+        const totalMark = studentsObject.map((student) => student.marks.reduce((acc, mark) => acc + mark), 0);
+        // console.log(totalMark);
+        // calculate student average marks
+        const studentAverageMark = studentsObject.map((student) => {
+            let studentMarks = student.marks.reduce((acc, mark) => acc + mark) / student.marks.length;
+            return Number(studentMarks.toFixed(0));
+        });
+        // console.log(studentAverageMark);
+        // Grade Calculate
+        const studentGradeCalculate = studentAverageMark.map((mark) => {
+            const gradeCalculate = (mark) => {
+                if (mark >= 80) {
+                    return "A+";
+                }
+                else if (mark >= 70) {
+                    return "A";
+                }
+                else if (mark >= 60) {
+                    return "A-";
+                }
+                else if (mark >= 50) {
+                    return "B";
+                }
+                else if (mark >= 40) {
+                    return "C";
+                }
+                else if (mark >= 33) {
+                    return "D";
+                }
+                return "F";
+            };
+            return { [mark]: gradeCalculate(mark) };
+        });
+        // console.log(studentGradeCalculate);
+        ///////////////////////////////////////////
+        return {
+            totalMark: totalMark,
+            studentAverageMark: studentAverageMark,
+            studentGradeCalculate: studentGradeCalculate,
+        };
+    };
+    console.log(studentManagementSystem(students));
 }
 //# sourceMappingURL=practice.js.map
