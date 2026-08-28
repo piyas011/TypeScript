@@ -101,14 +101,24 @@ const calculateGrade = (averageMark) => {
     return grade;
 };
 // Top Student
-const findTopStudent = (students) => {
-    let topStudent = students[0];
-    const averageMark = students.map((student) => student.marks.reduce((acc, mark) => acc + mark, 0));
-    console.log(averageMark);
+const averageMark = (students) => {
+    const total = students.marks.reduce((acc, mark) => acc + mark);
+    const average = total / students.marks.length;
+    return average;
 };
-console.log(findTopStudent(students));
+const findTopStudent = (students) => {
+    const topStudent = students.reduce((top, student) => {
+        const currentAverage = averageMark(student);
+        const topAverage = averageMark(top);
+        if (currentAverage > topAverage) {
+            return student;
+        }
+        return top;
+    });
+    return topStudent;
+};
 // console.log(totalMarkCalculate(students));
 // console.log(calculateAverageMark(students));
 // console.log(calculateGrade(calculateAverageMark(students)));
-//
+console.log(findTopStudent(students));
 //# sourceMappingURL=studentMS.js.map
